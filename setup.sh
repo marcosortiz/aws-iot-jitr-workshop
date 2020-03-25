@@ -62,3 +62,13 @@ mosquitto_pub -d \
 -i thing-9876-5432-1098 \
 --tls-version tlsv1.2 \
 -m "Hello World !"
+
+# Mass provisioning
+cd ../device-simulator/
+
+node index.js \
+--root-ca-directory ../certificate-scripts/root-ca-certs \
+--aws-root-ca ../certificate-scripts/aws-root-cert.pem \
+--endpoint $IOT_ENDPOINT \
+--type greengrass \
+--number 5
