@@ -48,3 +48,17 @@ mosquitto_pub -d \
 -i thing-1234-5678-9123 \
 --tls-version tlsv1.2 \
 -m "Hello World !"
+
+# Make sure to regenerate the device cert with changes on openssl config file
+./create-device-certificate.sh
+
+mosquitto_pub -d \
+--cafile aws-root-cert.pem \
+--cert device-certs/device-and-ca-certificate.crt \
+--key device-certs/device-certificate.key \
+-h $IOT_ENDPOINT \
+-p 8883 \
+-t device/thing-9876-5432-1098 \
+-i thing-9876-5432-1098 \
+--tls-version tlsv1.2 \
+-m "Hello World !"
