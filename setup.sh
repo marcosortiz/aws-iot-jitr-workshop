@@ -3,15 +3,12 @@
 ###############################################################################
 
 # Downloading src code
-wget -O nov-jitr.zip https://www.dropbox.com/s/fi3927ved3cdr0g/nov-jitr.zip?dl=0
-unzip nov-jitr.zip
+git clone https://github.com/marcosortiz/aws-iot-jitr-workshop.git
+cd aws-iot-jitr-workshop
 
 # install prereqs
 sudo apt install -y jq
 sudo apt install -y mosquitto-clients
-
-
-# How to set the aws cli credentials
 
 # Create your s3 bucket
 S3_BUCKET=<bucket-name-here>
